@@ -16,9 +16,11 @@ body, html {
 }
 
 .image-container {
-    display: inline-block;
-    margin: 1px; /* Minimized margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 img {
     display: block;
