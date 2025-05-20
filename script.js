@@ -50,7 +50,7 @@ document.addEventListener("click", function(event) {
         lightbox.classList.add("lightbox");
 
         const img = document.createElement("img");
-        img.src = `https://drive.google.com/uc?id=${imageId}`;
+        img.src = `https://lh3.googleusercontent.com/d/${imageId}?authuser=0`;
         
         lightbox.appendChild(img);
         document.body.appendChild(lightbox);
