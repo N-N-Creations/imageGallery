@@ -6,6 +6,20 @@ body {
     background: #f0f2f5;
 }
 
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Adjust gap as needed */
+    justify-content: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* Layout Structure */
 .container {
     display: grid;
