@@ -10,19 +10,26 @@ body, html {
 #gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px; /* Reduced gap */
+    gap: 8px; 
     justify-content: center;
     align-items: flex-start;
 }
 
-/* Image Wrapper */
 .image-container {
     display: inline-block;
-    margin: 2px; /* Reduced margin */
+    margin: 1px; /* Minimized margin */
 }
+
+img {
+    display: block;
+    max-width: 100%;
+    vertical-align: middle; /* Prevents unwanted gaps */
+}
+
 
 /* Image Styles */
 img {
+    display: block;
     width: 180px;
     height: 180px;
     object-fit: cover;
@@ -30,6 +37,7 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
     vertical-align: middle; /* Fix for extra spacing */
 }
 
