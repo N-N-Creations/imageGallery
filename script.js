@@ -35,11 +35,16 @@ async function displayImages(folderId) {
     ).join('');
 }
 
-// Lightbox Functionality with Event Delegation
+// Event listener for lightbox functionality (fix for dynamic images)
 document.addEventListener("click", function(event) {
-    if (event.target.tagName === "IMG") {
+    if (event.target.tagName === "IMG" && event.target.hasAttribute("data-id")) {
         const imageId = event.target.getAttribute("data-id");
-        
+
+        if (!imageId) {
+            console.error("Error: imageId is null or undefined");
+            return;
+        }
+
         // Create Lightbox
         const lightbox = document.createElement("div");
         lightbox.classList.add("lightbox");
