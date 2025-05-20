@@ -1,9 +1,9 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f9fa;
+    background: #f0f2f5;
 }
 
 /* Layout Structure */
@@ -15,49 +15,55 @@ body {
 
 /* Sidebar Styling */
 aside {
-    background: #343a40;
+    background: #2c3e50;
     color: white;
     padding: 15px;
     overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Category Buttons */
 button {
     width: 100%;
-    background: #007bff;
+    background: #3498db;
     color: white;
     border: none;
-    padding: 10px;
-    margin-bottom: 5px;
+    padding: 12px;
+    margin-bottom: 8px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #2980b9;
+    transform: scale(1.05);
 }
 
 /* Image Gallery */
 main {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
     justify-content: center;
 }
 
+/* Image Styles */
 img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 img:hover {
     transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Lightbox Effect */
@@ -67,7 +73,7 @@ img:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +81,19 @@ img:hover {
 }
 
 .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 80%;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 30% 70%;
+    }
+    img {
+        width: 140px;
+        height: 140px;
+    }
 }
