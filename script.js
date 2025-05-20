@@ -51,12 +51,6 @@ document.addEventListener("click", function(event) {
 
         const img = document.createElement("img");
         img.src = `https://lh3.googleusercontent.com/d/${imageId}?authuser=0`;
-
-        // Wait for image to load to adjust size
-        img.onload = function() {
-            lightbox.style.width = img.naturalWidth + "px";
-            lightbox.style.height = img.naturalHeight + "px";
-        };
         
         lightbox.appendChild(img);
         document.body.appendChild(lightbox);
