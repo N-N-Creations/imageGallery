@@ -1,18 +1,35 @@
 const API_KEY = 'AIzaSyA7EYAe-Cj-XsG4BkbDrt0YfwScf9dI4zI'; 
 const DRIVE_FOLDER_ID = '1WC7j0E0vXveSXcImpI0kRlj9iALma2kP'; 
 
-
-// Fetch folders (categories) with error handling
+// Fetch folders (categories) with error handling and sorting
 async function fetchFolders() {
     try {
         const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER_ID}'+in+parents and mimeType='application/vnd.google-apps.folder'&key=${API_KEY}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        return data.files;
+
+        // Sort folders alphabetically
+        const sortedFolders = data.files.sort((a, b) => a.name.localeCompare(b.name));
+        return sortedFolders;
     } catch (error) {
         console.error("Error fetching folders:", error);
         return [];
     }
+}
+
+// Display folder categories and auto-load first folder
+async function displayCategories() {
+    const folders = await fetchFolders();
+    const categoryContainer = document.getElementById('categories');
+
+    if (folders.length === 0) return;
+
+    categoryContainer.innerHTML = folders.map(folder => 
+        `<button onclick="displayImages('${folder.id}')">${folder.name}</button>`
+    ).join('');
+
+    // Auto-load the first folder
+    displayImages(folders[0].id);
 }
 
 // Fetch images with error handling
@@ -27,15 +44,6 @@ async function fetchImages(folderId) {
         console.error("Error fetching images:", error);
         return [];
     }
-}
-
-// Display folder categories
-async function displayCategories() {
-    const folders = await fetchFolders();
-    const categoryContainer = document.getElementById('categories');
-    categoryContainer.innerHTML = folders.map(folder => 
-        `<button onclick="displayImages('${folder.id}')">${folder.name}</button>`
-    ).join('');
 }
 
 // Display images in the gallery with optimized spacing

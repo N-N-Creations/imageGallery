@@ -1,24 +1,42 @@
 /* General Styling */
-body {
+body, html {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background: #f0f2f5;
 }
 
+/* Gallery Container */
 #gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* Adjust gap as needed */
+    gap: 4px; /* Reduced gap */
     justify-content: center;
+    align-items: flex-start;
 }
 
+/* Image Wrapper */
 .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
+    margin: 2px; /* Reduced margin */
 }
 
+/* Image Styles */
+img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    vertical-align: middle; /* Fix for extra spacing */
+}
+
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
 
 /* Layout Structure */
 .container {
@@ -53,31 +71,6 @@ button {
 button:hover {
     background: #2980b9;
     transform: scale(1.05);
-}
-
-/* Image Gallery */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 20px;
-    justify-content: center;
-}
-
-/* Image Styles */
-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-img:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Lightbox Effect */
