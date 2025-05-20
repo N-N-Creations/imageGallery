@@ -55,6 +55,9 @@ async function displayImages(folderId) {
             <img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w1000" alt="${img.name}" data-id="${img.id}">
         </div>`
     ).join('');
+    
+    gallery.style.display = 'flex';  // Ensure flex behavior
+    gallery.style.flexWrap = 'wrap';
 }
 
 // Event listener for lightbox functionality (fix for dynamic images)
